@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;TxAccount.java&apos; to &apos;ag-pod-account/src/pod&apos;&#x0A;- Original project: &apos;ag-pod-txcoord&apos;&#x0A;- Destination element: &apos;ag-pod-account/src/pod&apos;&#x0A;- Original element: &apos;pod.TxAccount.java&apos;" description="Copy compilation unit" destination="=ag-pod-account/src&lt;pod" element1="/src&lt;pod{TxAccount.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1475506388924" units="1" version="1.0"/>
+</session>

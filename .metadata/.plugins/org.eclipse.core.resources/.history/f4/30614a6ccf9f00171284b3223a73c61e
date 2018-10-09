@@ -1,0 +1,11 @@
+import java.rmi.registry.LocateRegistry;
+
+import pod.AccountManager;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Registry registry = LocateRegistry.getRegistry("127.0.0.1", 10003);
+		AccountManager manager = (AccountManager) registry.lookup("AccountManager");
+	}
+}

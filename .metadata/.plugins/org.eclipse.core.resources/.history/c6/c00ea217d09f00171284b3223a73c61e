@@ -1,0 +1,81 @@
+package pod;
+
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+
+@SuppressWarnings("serial")
+public class AccountManagerImpl extends UnicastRemoteObject implements AccountManager {
+  private TxCoord txCoord;
+  private Account accountA;
+  private Account accountB;
+  //private Account accountC;
+  //private Account accountD;
+  //private Account accountE;
+
+  protected AccountManagerImpl(TxCoord tx, Account a, Account b/*, Account c, Account d, Account e*/) throws RemoteException {
+    txCoord = tx;
+    accountA = a;
+    accountB = b;
+    //accountC = c;
+    //accountD = d;
+    //accountE = e;
+  }
+
+  @Override
+  public void transfer(String srcAccount, float value) throws RemoteException {
+    //
+    //float part = value / 4;
+	  float part = value / 2;
+    //
+    try {
+      //preparar a transação
+      txCoord.prepareAll();
+      //inicializa a operação
+      if ("A".equals(srcAccount)){
+        accountA.debit(value);
+        accountB.credit(part);
+        //accountC.credit(part);
+        //accountD.credit(part);
+        //accountE.credit(part);
+      }
+      else if ("B".equals(srcAccount)){
+        accountB.debit(value);
+        accountA.credit(part);
+        //accountC.credit(part);
+        //accountD.credit(part);
+        //accountE.credit(part);
+      }/*
+      else if ("C".equals(srcAccount)){
+        accountC.debit(value);
+        accountA.credit(part);
+        accountB.credit(part);
+        accountD.credit(part);
+        accountE.credit(part);
+      }
+      else if ("D".equals(srcAccount)){
+        accountD.debit(value);
+        accountA.credit(part);
+        accountB.credit(part);
+        accountC.credit(part);
+        accountE.credit(part);
+      }
+      else if ("E".equals(srcAccount)){
+        accountE.debit(value);
+        accountA.credit(part);
+        accountB.credit(part);
+        accountC.credit(part);
+        accountD.credit(part);
+      }*/
+      else {
+        throw new RemoteException("Conta não encontrada.");
+      }
+      //commit
+      txCoord.commitAll();
+    }
+    catch (RemoteException e){
+      txCoord.rollbackAll();
+      throw new RemoteException(e.getMessage());
+    }
+  }
+
+}

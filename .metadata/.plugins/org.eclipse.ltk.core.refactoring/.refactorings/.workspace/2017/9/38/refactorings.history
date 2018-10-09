@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename Java project &apos;ag-pod-account&apos; to &apos;ag-pod-account-a&apos;&#x0A;- Original element: &apos;ag-pod-account&apos;&#x0A;- Renamed element: &apos;ag-pod-account&apos;&#x0A;- Update references to refactored element" description="Rename Java project &apos;ag-pod-account&apos;" flags="7" id="org.eclipse.jdt.ui.rename.java.project" input="=ag-pod-account" name="ag-pod-account-a" references="true" stamp="1506109162310" version="1.0"/>
+</session>

@@ -1,0 +1,15 @@
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+
+import pod.AccountManager;
+
+public class Main {
+
+	public static void main(String[] args) throws RemoteException, NotBoundException {
+		Registry registry = LocateRegistry.getRegistry("127.0.0.1", 10003);
+		AccountManager manager = (AccountManager) registry.lookup("AccountManager");
+		//iniciar transações
+	}
+}
